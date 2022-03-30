@@ -11,7 +11,7 @@ class GroupController extends Controller
 {
     public function index() 
     {
-        return Inertia::render('Group/Index');
+        return Inertia::render('Group/Index', ['groups' => Group::all()]);
     }
     
     public function create() 
@@ -24,7 +24,10 @@ class GroupController extends Controller
         $request->validate([
             'name' => ['required']
         ]);
-        Group::create($request->all());
+        $newGroup = new Group();
+        $newGroup->name = $request->name;
+        $newGroup->user_id = auth()->id();
+        $newGroup->save();
         return redirect()->route('group.index');
     }
 }
