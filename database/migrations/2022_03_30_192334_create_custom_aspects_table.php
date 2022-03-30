@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('aspect_id');
             $table->bigInteger('group_id');
             $table->string('label', 20);
-            $table->integer('order');
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

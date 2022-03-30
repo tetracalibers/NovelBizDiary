@@ -18,10 +18,10 @@ return new class extends Migration
             $table->bigInteger('group_id');
             $table->string('name', 100);
             $table->string('furigana', 200);
-            $table->string('avatar', 300);
-            $table->string('catchphrase', 200);
-            $table->text('profile');
-            $table->integer('order');
+            $table->string('avatar', 300)->nullable();
+            $table->string('catchphrase', 200)->nullable();
+            $table->text('profile')->nullable();
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }
