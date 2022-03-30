@@ -11,4 +11,9 @@ class GroupController extends Controller
     {
         return Inertia::render('Group/Index');
     }
+    
+    public function create() 
+    {
+        return Inertia::render('Group/Create');
+    }
 }
