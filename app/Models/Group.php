@@ -11,6 +11,7 @@ class Group extends Model
     
     protected $fillable = [
         'name',
+        'thumbnail'
     ];
     
     protected $primaryKey = 'group_id';
