@@ -28,7 +28,14 @@ export default function Dashboard(props) {
               </div>
               <ul>
                 {props.groups.map((group) => {
-                  return <li key={group.groupId}>{group.name}</li>
+                  return (
+                    <li key={group.groupId}>
+                      {group.name}
+                      {group.thumbnail && (
+                        <img src={`../uploads/group/${group.thumbnail}`} />
+                      )}
+                    </li>
+                  )
                 })}
               </ul>
             </div>

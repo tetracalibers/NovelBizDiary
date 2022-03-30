@@ -5603,17 +5603,15 @@ __webpack_require__.r(__webpack_exports__);
 
 function Create(props) {
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.useForm)({
-    name: ''
+    name: '',
+    thumbnail: ''
   }),
       data = _useForm.data,
       setData = _useForm.setData,
       post = _useForm.post,
       processing = _useForm.processing,
-      errors = _useForm.errors;
-
-  var onHandleChange = function onHandleChange(event) {
-    setData(event.target.name, event.target.value);
-  };
+      errors = _useForm.errors,
+      progress = _useForm.progress;
 
   var submit = function submit(e) {
     e.preventDefault();
@@ -5648,10 +5646,23 @@ function Create(props) {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   type: "text",
                   name: "name",
-                  value: data.title,
+                  value: data.name,
                   className: "mt-1 block w-full",
                   isFocused: true,
-                  handleChange: onHandleChange
+                  handleChange: function handleChange(e) {
+                    return setData('name', e.target.value);
+                  }
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                  type: "file",
+                  onChange: function onChange(e) {
+                    return setData('thumbnail', e.target.files[0]);
+                  }
+                }), progress && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("progress", {
+                  value: progress.percentage,
+                  max: "100",
+                  children: [progress.percentage, "%"]
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "flex items-center justify-end mt-4",
@@ -5722,8 +5733,10 @@ function Dashboard(props) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
               children: props.groups.map(function (group) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                  children: group.name
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                  children: [group.name, group.thumbnail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                    src: "../uploads/group/".concat(group.thumbnail)
+                  })]
                 }, group.groupId);
               })
             })]

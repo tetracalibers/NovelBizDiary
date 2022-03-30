@@ -7,17 +7,13 @@ import Button from '@/Components/Button'
 import ValidationErrors from '@/Components/ValidationErrors'
 
 export default function Create(props) {
-  const { data, setData, post, processing, errors } = useForm({
+  const { data, setData, post, processing, errors, progress } = useForm({
     name: '',
+    thumbnail: '',
   })
-
-  const onHandleChange = (event) => {
-    setData(event.target.name, event.target.value)
-  }
 
   const submit = (e) => {
     e.preventDefault()
-
     post(route('group.store'))
   }
 
@@ -40,15 +36,25 @@ export default function Create(props) {
               <form onSubmit={submit}>
                 <div>
                   <Label forInput="name" value="Name" />
-
                   <Input
                     type="text"
                     name="name"
-                    value={data.title}
+                    value={data.name}
                     className="mt-1 block w-full"
                     isFocused={true}
-                    handleChange={onHandleChange}
+                    handleChange={(e) => setData('name', e.target.value)}
                   />
+                </div>
+                <div>
+                  <input
+                    type="file"
+                    onChange={(e) => setData('thumbnail', e.target.files[0])}
+                  />
+                  {progress && (
+                    <progress value={progress.percentage} max="100">
+                      {progress.percentage}%
+                    </progress>
+                  )}
                 </div>
                 <div className="flex items-center justify-end mt-4">
                   <Button className="ml-4" processing={processing}>

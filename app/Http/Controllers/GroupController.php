@@ -22,10 +22,19 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required']
+            'name' => 'required',
+            'thumbnail' => 'image|mimes:jpeg,jpg,png,gif,svg|max:2048'
         ]);
+        if ($file = $request->thumbnail) {
+            $fileName = time() . $file->getClientOriginalName();
+            $target_path = public_path('uploads/group');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = "";
+        }
         $newGroup = new Group();
         $newGroup->name = $request->name;
+        $newGroup->thumbnail = $fileName;
         $newGroup->user_id = auth()->id();
         $newGroup->save();
         return redirect()->route('group.index');
