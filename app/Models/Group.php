@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
+
 class Group extends Model
 {
     use HasFactory;
@@ -15,4 +17,9 @@ class Group extends Model
     ];
     
     protected $primaryKey = 'group_id';
+    
+    public function user() 
+    {
+        return $this->belongsTo(User::class);
+    }
 }
