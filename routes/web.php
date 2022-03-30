@@ -30,8 +30,10 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::controller(GroupController::class)->group(function() {
-    Route::get('/group', 'index')->middleware('auth');
+Route::middleware(['auth'])->group(function() {
+    Route::controller(GroupController::class)->group(function() {
+        Route::get('/group', 'index')->name('group.index');
+    });
 });
 
 require __DIR__.'/auth.php';
