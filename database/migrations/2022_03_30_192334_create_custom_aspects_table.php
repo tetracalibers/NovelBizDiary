@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('aspect_content', function (Blueprint $table) {
-            $table->bigInteger('aspect_id');
-            $table->bigInteger('person_id');
-            $table->text('content');
+        Schema::create('custom_aspects', function (Blueprint $table) {
+            $table->bigIncrements('aspect_id');
+            $table->bigInteger('group_id');
+            $table->string('label', 20);
+            $table->integer('order');
             $table->timestamps();
-            $table->primary(['aspect_id', 'person_id']);
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aspect_content');
+        Schema::dropIfExists('custom_aspects');
     }
 };
