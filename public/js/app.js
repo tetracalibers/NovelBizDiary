@@ -5706,6 +5706,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Dashboard(props) {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.useForm)(),
+      destroy = _useForm["delete"];
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__["default"], {
     auth: props.auth,
     errors: props.errors,
@@ -5736,8 +5739,16 @@ function Dashboard(props) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
                   children: [group.name, group.thumbnail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                     src: "../uploads/group/".concat(group.thumbnail)
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                    className: "px-4 py-2 bg-red-500 text-white rounded-lg text-xs font-semibold",
+                    onClick: function onClick() {
+                      return destroy(route('group.destroy', group.group_id), {
+                        preserveScroll: true
+                      });
+                    },
+                    children: "\u524A\u9664"
                   })]
-                }, group.groupId);
+                }, group.group_id);
               })
             })]
           })

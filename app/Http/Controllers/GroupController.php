@@ -39,4 +39,10 @@ class GroupController extends Controller
         $newGroup->save();
         return redirect()->route('group.index');
     }
+    
+    public function destroy($group_id)
+    {
+        Group::destroy($group_id);
+        return redirect()->route('group.index');
+    }
 }

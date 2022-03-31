@@ -2,9 +2,11 @@ import React from 'react'
 import Authenticated from '@/Layouts/Authenticated'
 import { Head } from '@inertiajs/inertia-react'
 import Button from '@/Components/Button'
-import { Link } from '@inertiajs/inertia-react'
+import { Link, useForm } from '@inertiajs/inertia-react'
 
 export default function Dashboard(props) {
+  const { delete: destroy } = useForm()
+
   return (
     <Authenticated
       auth={props.auth}
@@ -29,11 +31,21 @@ export default function Dashboard(props) {
               <ul>
                 {props.groups.map((group) => {
                   return (
-                    <li key={group.groupId}>
+                    <li key={group.group_id}>
                       {group.name}
                       {group.thumbnail && (
                         <img src={`../uploads/group/${group.thumbnail}`} />
                       )}
+                      <button
+                        className="px-4 py-2 bg-red-500 text-white rounded-lg text-xs font-semibold"
+                        onClick={() =>
+                          destroy(route('group.destroy', group.group_id), {
+                            preserveScroll: true,
+                          })
+                        }
+                      >
+                        削除
+                      </button>
                     </li>
                   )
                 })}
