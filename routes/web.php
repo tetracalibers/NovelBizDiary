@@ -38,7 +38,6 @@ Route::middleware(['auth'])->group(function() {
         'prefix' => 'images'
     ], function() {
         Route::get('/', 'index')->name('index');
-        Route::get('/upload', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::delete('/destroy/{id}', 'destroy')->name('destroy');
     });
