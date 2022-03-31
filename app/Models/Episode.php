@@ -13,7 +13,8 @@ class Episode extends Model
         'title',
         'catchphrase',
         'content',
-        
+        'start',
+        'finish',
         'order'
     ];
     

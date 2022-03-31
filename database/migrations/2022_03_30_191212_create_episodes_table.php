@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('title', 100);
             $table->string('catchphrase', 200)->nullable();
             $table->text('content');
-            $table->date('start_date')->nullable();
-            $table->date('finish_date')->nullable();
+            $table->string('start')->nullable();
+            $table->string('finish')->nullable();
             $table->integer('order')->nullable();
             $table->timestamps();
         });
