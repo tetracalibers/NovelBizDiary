@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('groups', function (Blueprint $table) {
-            $table->string('thumbnail')->nullable()->after('name');
+        Schema::create('uploaded_images', function (Blueprint $table) {
+            $table->bigIncrements('image_id');
+            $table->bigInteger('user_id');
+            $table->text('path');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('groups', function (Blueprint $table) {
-            $table->dropColumn('thumbnail');
-        });
+        Schema::dropIfExists('uploaded_images');
     }
 };

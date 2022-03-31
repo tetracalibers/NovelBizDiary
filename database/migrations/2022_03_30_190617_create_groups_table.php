@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigIncrements('group_id');
             $table->bigInteger('user_id');
             $table->string('name', 50);
+            $table->bigInteger('thumbnail_id')->nullable();
             $table->timestamps();
         });
     }
