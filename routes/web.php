@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function() {
         Route::get('/group', 'index')->name('group.index');
         Route::get('/group/create', 'create')->name('group.create');
         Route::post('/group/store', 'store')->name('group.store');
+        Route::get('/group/edit/{id}', 'edit')->name('group.edit');
+        Route::patch('/group/update/{id}', 'update')->name('group.update');
         Route::delete('/group/destroy/{id}', 'destroy')->name('group.destroy');
     });
 });

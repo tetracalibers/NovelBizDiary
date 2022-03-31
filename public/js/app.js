@@ -5682,6 +5682,129 @@ function Create(props) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Group/Edit.js":
+/*!******************************************!*\
+  !*** ./resources/js/Pages/Group/Edit.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Create)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/Authenticated */ "./resources/js/Layouts/Authenticated.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Components_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Input */ "./resources/js/Components/Input.js");
+/* harmony import */ var _Components_Label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Label */ "./resources/js/Components/Label.js");
+/* harmony import */ var _Components_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Button */ "./resources/js/Components/Button.js");
+/* harmony import */ var _Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/ValidationErrors */ "./resources/js/Components/ValidationErrors.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+
+function Create(props) {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.useForm)({
+    name: props.group.name,
+    thumbnail: new File([''], props.group.thumbnail)
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      patch = _useForm.patch,
+      processing = _useForm.processing,
+      errors = _useForm.errors,
+      progress = _useForm.progress;
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetch("../../uploads/group/".concat(props.group.thumbnail)).then(function (response) {
+      return response.blob();
+    }).then(function (blob) {
+      return new File([blob], props.group.thumbnail);
+    }).then(function (file) {
+      return setData('thumbnail', file);
+    });
+  }, []);
+
+  var submit = function submit(e) {
+    e.preventDefault();
+    patch(route('group.update', props.group.group_id));
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    auth: props.auth,
+    errors: props.errors,
+    header: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
+      className: "font-semibold text-xl text-gray-800 leading-tight",
+      children: "\u30B0\u30EB\u30FC\u30D7\u5B9A\u7FA9\u3092\u5909\u66F4"
+    }),
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
+      title: "\u30B0\u30EB\u30FC\u30D7\u5B9A\u7FA9\u3092\u5909\u66F4"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      className: "py-12",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "max-w-7xl mx-auto sm:px-6 lg:px-8",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "bg-white overflow-hidden shadow-sm sm:rounded-lg",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            className: "p-6 bg-white border-b border-gray-200",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_6__["default"], {
+              errors: errors
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+              onSubmit: submit,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  forInput: "name",
+                  value: "Name"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  type: "text",
+                  name: "name",
+                  value: data.name,
+                  className: "mt-1 block w-full",
+                  isFocused: true,
+                  handleChange: function handleChange(e) {
+                    return setData('name', e.target.value);
+                  }
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                  type: "file",
+                  onChange: function onChange(e) {
+                    return setData('thumbnail', e.target.files[0]);
+                  }
+                }), progress && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("progress", {
+                  value: progress.percentage,
+                  max: "100",
+                  children: [progress.percentage, "%"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                  children: data.thumbnail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                    src: "../../uploads/group/".concat(data.thumbnail.name)
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                className: "flex items-center justify-end mt-4",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                  className: "ml-4",
+                  processing: processing,
+                  children: "\u66F4\u65B0"
+                })
+              })]
+            })]
+          })
+        })
+      })
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Group/Index.js":
 /*!*******************************************!*\
   !*** ./resources/js/Pages/Group/Index.js ***!
@@ -5739,6 +5862,12 @@ function Dashboard(props) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
                   children: [group.name, group.thumbnail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                     src: "../uploads/group/".concat(group.thumbnail)
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+                    href: route('group.edit', group.group_id),
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                      className: "px-4 py-2 bg-green-500 text-white rounded-lg text-xs font-semibold",
+                      children: "\u66F4\u65B0"
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                     className: "px-4 py-2 bg-red-500 text-white rounded-lg text-xs font-semibold",
                     onClick: function onClick() {
@@ -59286,6 +59415,8 @@ var map = {
 	"./Dashboard.js": "./resources/js/Pages/Dashboard.js",
 	"./Group/Create": "./resources/js/Pages/Group/Create.js",
 	"./Group/Create.js": "./resources/js/Pages/Group/Create.js",
+	"./Group/Edit": "./resources/js/Pages/Group/Edit.js",
+	"./Group/Edit.js": "./resources/js/Pages/Group/Edit.js",
 	"./Group/Index": "./resources/js/Pages/Group/Index.js",
 	"./Group/Index.js": "./resources/js/Pages/Group/Index.js",
 	"./Welcome": "./resources/js/Pages/Welcome.js",

@@ -36,6 +36,11 @@ export default function Dashboard(props) {
                       {group.thumbnail && (
                         <img src={`../uploads/group/${group.thumbnail}`} />
                       )}
+                      <Link href={route('group.edit', group.group_id)}>
+                        <button className="px-4 py-2 bg-green-500 text-white rounded-lg text-xs font-semibold">
+                          更新
+                        </button>
+                      </Link>
                       <button
                         className="px-4 py-2 bg-red-500 text-white rounded-lg text-xs font-semibold"
                         onClick={() =>

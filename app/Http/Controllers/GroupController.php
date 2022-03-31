@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Inertia\Inertia; 
 
@@ -37,6 +38,33 @@ class GroupController extends Controller
         $newGroup->thumbnail = $fileName;
         $newGroup->user_id = auth()->id();
         $newGroup->save();
+        return redirect()->route('group.index');
+    }
+    
+    public function edit($group_id)
+    {
+        $group = Group::find($group_id);
+        return Inertia::render('Group/Edit', ['group' => $group]);
+    }
+    
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'thumbnail' => 'image|mimes:jpeg,jpg,png,gif,svg|max:2048'
+        ]);
+        if ($file = $request->thumbnail) {
+            $fileName = time() . $file->getClientOriginalName();
+            $target_path = public_path('uploads/group');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = "";
+        }
+        $rewriteGroup = Group::find($request->group_id);
+        $rewriteGroup->update([
+            'name' => $request->name,
+            'thumbnail' => $fileName
+        ]);
         return redirect()->route('group.index');
     }
     
