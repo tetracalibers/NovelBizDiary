@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\UploadedImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +32,28 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function() {
-    Route::controller(GroupController::class)->group(function() {
-        Route::get('/group', 'index')->name('group.index');
-        Route::get('/group/create', 'create')->name('group.create');
-        Route::post('/group/store', 'store')->name('group.store');
-        Route::get('/group/edit/{id}', 'edit')->name('group.edit');
-        Route::patch('/group/update/{id}', 'update')->name('group.update');
-        Route::delete('/group/destroy/{id}', 'destroy')->name('group.destroy');
+    Route::group([
+        'controller' => UploadedImageController::class, 
+        'name' => 'uploadImage.',
+        'prefix' => 'images'
+    ], function() {
+        Route::get('/', 'index')->name('index');
+        Route::get('/upload', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::delete('/destroy/{id}', 'destroy')->name('destroy');
+    });
+    
+    Route::group([
+        'controller' => GroupController::class,
+        'name' => 'group.',
+        'prefix' => 'group'
+    ], function() {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::patch('/update/{id}', 'update')->name('update');
+        Route::delete('/destroy/{id}', 'destroy')->name('destroy');
     });
 });
 
