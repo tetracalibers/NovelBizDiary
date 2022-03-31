@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Person;
+use App\Models\CustomAspect;
 
 class AspectContent extends Model
 {
@@ -20,5 +21,10 @@ class AspectContent extends Model
     public function person()
     {
         return $this->belongsTo(Person::class);
+    }
+    
+    public function aspect()
+    {
+        return $this->hasOne(CustomAspect::class);
     }
 }
