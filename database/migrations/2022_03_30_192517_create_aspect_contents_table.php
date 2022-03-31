@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('aspect_contents', function (Blueprint $table) {
+            $table->bigIncrements('aspect_content_id');
             $table->bigInteger('aspect_id');
             $table->bigInteger('person_id');
             $table->text('content');
             $table->timestamps();
-            $table->primary(['aspect_id', 'person_id']);
         });
     }
 

@@ -15,10 +15,7 @@ class AspectContent extends Model
         'content'
     ];
     
-    protected $primaryKey = [
-        'aspect_id',
-        'person_id'
-    ];
+    protected $primaryKey = 'aspect_content_id';
     
     public function person()
     {
