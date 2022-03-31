@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Person;
+
 class AspectContent extends Model
 {
     use HasFactory;
@@ -17,4 +19,9 @@ class AspectContent extends Model
         'aspect_id',
         'person_id'
     ];
+    
+    public function person()
+    {
+        return $this->belongsTo(Person::class);
+    }
 }
