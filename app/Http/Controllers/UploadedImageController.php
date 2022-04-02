@@ -31,7 +31,7 @@ class UploadedImageController extends Controller
         
         $newImage = new UploadedImages();
         $newImage->path = $fileName;
-        // TODO リレーション先への反映
+        $newImage->user_id = auth()->id();
         $newImage->save();
         
         return redirect()->route('images.index');

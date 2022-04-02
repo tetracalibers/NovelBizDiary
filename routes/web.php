@@ -34,25 +34,23 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function() {
     Route::group([
         'controller' => UploadedImageController::class, 
-        'name' => 'uploadImage.',
         'prefix' => 'images'
     ], function() {
-        Route::get('/', 'index')->name('index');
-        Route::post('/store', 'store')->name('store');
-        Route::delete('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/', 'index')->name('images.index');
+        Route::post('/store', 'store')->name('images.store');
+        Route::delete('/destroy/{id}', 'destroy')->name('images.destroy');
     });
     
     Route::group([
         'controller' => GroupController::class,
-        'name' => 'group.',
         'prefix' => 'group'
     ], function() {
-        Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::post('/store', 'store')->name('store');
-        Route::get('/edit/{id}', 'edit')->name('edit');
-        Route::patch('/update/{id}', 'update')->name('update');
-        Route::delete('/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/', 'index')->name('group.index');
+        Route::get('/create', 'create')->name('group.create');
+        Route::post('/store', 'store')->name('group.store');
+        Route::get('/edit/{id}', 'edit')->name('group.edit');
+        Route::patch('/update/{id}', 'update')->name('group.update');
+        Route::delete('/destroy/{id}', 'destroy')->name('group.destroy');
     });
 });
 

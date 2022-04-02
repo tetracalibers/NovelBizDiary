@@ -12,13 +12,39 @@ export default function Dashboard(props) {
     processing,
     errors,
     progress,
+    data,
   } = useForm({
     image: '',
+    preview: '',
   })
+
+  const resetData = () => {
+    setData('preview', '')
+    setData('image', '')
+  }
 
   const uploadSubmit = (e) => {
     e.preventDefault()
     post(route('images.store'))
+    resetData()
+  }
+
+  const previewFile = (e) => {
+    const file = e.target.files[0]
+
+    const reader = new FileReader()
+    reader.addEventListener(
+      'load',
+      function () {
+        setData('preview', reader.result)
+        setData('image', file)
+      },
+      false
+    )
+
+    if (file) {
+      reader.readAsDataURL(file)
+    }
   }
 
   return (
@@ -39,14 +65,14 @@ export default function Dashboard(props) {
             <div className="p-6 bg-white border-b border-gray-200">
               <ValidationErrors errors={errors} />
               <form onSubmit={uploadSubmit}>
-                <input
-                  type="file"
-                  onChange={(e) => setData('image', e.target.files[0])}
-                />
+                <input type="file" onChange={(e) => previewFile(e)} />
                 {progress && (
                   <progress value={progress.percentage} max="100">
                     {progress.percentage}%
                   </progress>
+                )}
+                {data.preview && (
+                  <img src={data.preview} width="100" height="100" />
                 )}
                 <Button className="ml-4" processing={processing}>
                   アップロード

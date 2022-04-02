@@ -34,12 +34,6 @@ export default function Authenticated({ auth, header, children }) {
                 >
                   グループ一覧
                 </NavLink>
-                <NavLink
-                  href={route('images.index')}
-                  active={route().current('images.index')}
-                >
-                  画像ライブラリ
-                </NavLink>
               </div>
             </div>
 

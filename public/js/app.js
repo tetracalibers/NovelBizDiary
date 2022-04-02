@@ -4745,12 +4745,12 @@ function Authenticated(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_NavLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                href: route("dashboard"),
-                active: route().current("dashboard"),
+                href: route('dashboard'),
+                active: route().current('dashboard'),
                 children: "Dashboard"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_NavLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                href: route("group.index"),
-                active: route().current("group.index"),
+                href: route('group.index'),
+                active: route().current('group.index'),
                 children: "\u30B0\u30EB\u30FC\u30D7\u4E00\u89A7"
               })]
             })]
@@ -4780,7 +4780,7 @@ function Authenticated(_ref) {
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Content, {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Link, {
-                    href: route("logout"),
+                    href: route('logout'),
                     method: "post",
                     as: "button",
                     children: "Log Out"
@@ -4803,13 +4803,13 @@ function Authenticated(_ref) {
                 fill: "none",
                 viewBox: "0 0 24 24",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
-                  className: !showingNavigationDropdown ? "inline-flex" : "hidden",
+                  className: !showingNavigationDropdown ? 'inline-flex' : 'hidden',
                   strokeLinecap: "round",
                   strokeLinejoin: "round",
                   strokeWidth: "2",
                   d: "M4 6h16M4 12h16M4 18h16"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
-                  className: showingNavigationDropdown ? "inline-flex" : "hidden",
+                  className: showingNavigationDropdown ? 'inline-flex' : 'hidden',
                   strokeLinecap: "round",
                   strokeLinejoin: "round",
                   strokeWidth: "2",
@@ -4820,12 +4820,12 @@ function Authenticated(_ref) {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: (showingNavigationDropdown ? "block" : "hidden") + " sm:hidden",
+        className: (showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "pt-2 pb-3 space-y-1",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            href: route("dashboard"),
-            active: route().current("dashboard"),
+            href: route('dashboard'),
+            active: route().current('dashboard'),
             children: "Dashboard"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -4843,7 +4843,7 @@ function Authenticated(_ref) {
             className: "mt-3 space-y-1",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_ResponsiveNavLink__WEBPACK_IMPORTED_MODULE_4__["default"], {
               method: "post",
-              href: route("logout"),
+              href: route('logout'),
               as: "button",
               children: "Log Out"
             })
@@ -5849,14 +5849,20 @@ function Dashboard(props) {
           className: "bg-white overflow-hidden shadow-sm sm:rounded-lg",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "p-6 bg-white border-b border-gray-200",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                 href: route('group.create'),
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   type: "button",
                   children: "\u65B0\u898F\u30B0\u30EB\u30FC\u30D7\u3092\u4F5C\u6210"
                 })
-              })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+                href: route('images.index'),
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  type: "button",
+                  children: "\u753B\u50CF\u30E9\u30A4\u30D6\u30E9\u30EA"
+                })
+              })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
               children: props.groups.map(function (group) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
@@ -5878,6 +5884,126 @@ function Dashboard(props) {
                     children: "\u524A\u9664"
                   })]
                 }, group.group_id);
+              })
+            })]
+          })
+        })
+      })
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/UploadedImage/Index.js":
+/*!***************************************************!*\
+  !*** ./resources/js/Pages/UploadedImage/Index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Dashboard)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/Authenticated */ "./resources/js/Layouts/Authenticated.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Button */ "./resources/js/Components/Button.js");
+/* harmony import */ var _Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/ValidationErrors */ "./resources/js/Components/ValidationErrors.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+function Dashboard(props) {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.useForm)({
+    image: '',
+    preview: ''
+  }),
+      destroy = _useForm["delete"],
+      setData = _useForm.setData,
+      post = _useForm.post,
+      processing = _useForm.processing,
+      errors = _useForm.errors,
+      progress = _useForm.progress,
+      data = _useForm.data;
+
+  var uploadSubmit = function uploadSubmit(e) {
+    e.preventDefault();
+    post(route('images.store'));
+  };
+
+  var previewFile = function previewFile(e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.addEventListener('load', function () {
+      setData('preview', reader.result);
+      setData('image', file);
+    }, false);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_Layouts_Authenticated__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    auth: props.auth,
+    errors: props.errors,
+    header: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+      className: "font-semibold text-xl text-gray-800 leading-tight",
+      children: "\u753B\u50CF\u30E9\u30A4\u30D6\u30E9\u30EA"
+    }),
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
+      title: "\u753B\u50CF\u30E9\u30A4\u30D6\u30E9\u30EA"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "py-12",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "max-w-7xl mx-auto sm:px-6 lg:px-8",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "bg-white overflow-hidden shadow-sm sm:rounded-lg",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "p-6 bg-white border-b border-gray-200",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              errors: errors
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+              onSubmit: uploadSubmit,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                type: "file",
+                onChange: function onChange(e) {
+                  return previewFile(e);
+                }
+              }), progress && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("progress", {
+                value: progress.percentage,
+                max: "100",
+                children: [progress.percentage, "%"]
+              }), data.preview && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                src: data.preview,
+                width: "100",
+                height: "100"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                className: "ml-4",
+                processing: processing,
+                children: "\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
+              children: props.images.map(function (image) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                    src: "../uploads/".concat(image.path)
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                    className: "px-4 py-2 bg-red-500 text-white rounded-lg text-xs font-semibold",
+                    onClick: function onClick() {
+                      return destroy(route('images.destroy', image.image_id), {
+                        preserveScroll: true
+                      });
+                    },
+                    children: "\u524A\u9664"
+                  })]
+                }, image.image_id);
               })
             })]
           })
@@ -59419,6 +59545,8 @@ var map = {
 	"./Group/Edit.js": "./resources/js/Pages/Group/Edit.js",
 	"./Group/Index": "./resources/js/Pages/Group/Index.js",
 	"./Group/Index.js": "./resources/js/Pages/Group/Index.js",
+	"./UploadedImage/Index": "./resources/js/Pages/UploadedImage/Index.js",
+	"./UploadedImage/Index.js": "./resources/js/Pages/UploadedImage/Index.js",
 	"./Welcome": "./resources/js/Pages/Welcome.js",
 	"./Welcome.js": "./resources/js/Pages/Welcome.js"
 };

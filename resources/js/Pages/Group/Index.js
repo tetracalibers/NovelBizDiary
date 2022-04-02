@@ -27,6 +27,9 @@ export default function Dashboard(props) {
                 <Link href={route('group.create')}>
                   <Button type="button">新規グループを作成</Button>
                 </Link>
+                <Link href={route('images.index')}>
+                  <Button type="button">画像ライブラリ</Button>
+                </Link>
               </div>
               <ul>
                 {props.groups.map((group) => {
